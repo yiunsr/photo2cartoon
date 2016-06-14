@@ -1,0 +1,24 @@
+{
+  "name": "p2cartoon",
+  "version": "0.0.0",
+  "authors": [
+    "yiunsr <nahanmil@nate.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "src"
+  ],
+  "dependencies": {
+    "lodash": "~4.13.1",
+    "bootstrap": "~3.3.6",
+    "imagetracerjs": "https://github.com/jankovicsandras/imagetracerjs.git",
+    "jquery": "~3.0.0",
+    "color-thief": "https://github.com/lokesh/color-thief.git#~2.0.1",
+    "mjolnic-bootstrap-colorpicker": "https://github.com/mjolnic/bootstrap-colorpicker.git#~2.3.3"
+  }
+}
