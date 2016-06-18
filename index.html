@@ -55,7 +55,7 @@
       <div class="form-group">
         <div class="row">
           <div class="col-xs-1">
-            <input type="number" class="form-control" id="colorcount" placeholder="숫자">  
+            <input type="number" class="form-control" id="colorcount" placeholder="숫자" value="4">  
           </div>
           <div class="col-xs-2">
             <input id="colorpickup"" class="btn btn-default" type="button" value="color 추출">
@@ -99,8 +99,11 @@
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/imagetracerjs/imagetracer_v1.1.1.js"></script>
     <script src="bower_components/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+    <script src="bower_components/color-thief/dist/color-thief.min.js"></script>
+    <script src="bower_components/lodash/dist/lodash.min.js"></script>
 
     <script>
+      var palette = [];
       $( document ).ready(function() {
         console.log( "ready!" );
 
@@ -111,8 +114,8 @@
         $("[data-class=colorselect]").colorpicker();
         $("[data-class=colorselect]").prepend(saved);
 
-        var canvas = $("#preview")[0];
-        var ctx = canvas.getContext('2d');
+        var previewcanvas = $("#preview")[0];
+        var ctx = previewcanvas.getContext('2d');
 
         $("#image01").change(function(){  
 
@@ -120,8 +123,8 @@
           reader.onload = function(event){
           var img = new Image();
           img.onload = function(){
-            canvas.width = img.width;
-            canvas.height = img.height;
+            previewcanvas.width = img.width;
+            previewcanvas.height = img.height;
             ctx.drawImage(img,0,0);
           }
           img.src = event.target.result;
@@ -131,7 +134,14 @@
 
       //// Color 추출
       $("#colorpickup").click(function(){
-
+        var colorcount = $("#colorcount").val();
+        var colorThief = new ColorThief();
+        var listtype_palette = colorThief.getPalette(previewcanvas, colorcount);
+        palette = [];
+        for( var i =0 ; i < listtype_palette.length ; i++){
+          palette.push({ r : listtype_palette[i][0], g : listtype_palette[i][1], v : listtype_palette[i][2], a : 255 });
+        }
+        
       });
 
       $("#done").click(function(){
