@@ -1,0 +1,14 @@
+{
+  "name": "CannyJS",
+  "homepage": "https://github.com/yuta1984/CannyJS",
+  "_release": "278d07d76c",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "278d07d76c92dbd3d5ff929aa175022e75c8c315"
+  },
+  "_source": "https://github.com/yuta1984/CannyJS.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/yuta1984/CannyJS.git",
+  "_direct": true
+}
